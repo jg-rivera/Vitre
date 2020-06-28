@@ -1,0 +1,37 @@
+body {
+    background-image: url("/images/Tiled-BG.png");
+    background-size: 200px 350px; 
+    margin-top: 4rem;
+
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.container {
+      /*background-color: rgba(255, 255, 255, 0.8);*/
+}
+
+@media only screen and (max-width: 992px) {
+	.divider {
+        height: 2px;
+        margin: 9px 0;
+        overflow: hidden;
+        background-color: #568DA0;
+    }
+}
+
+@media only screen and (min-width : 992px) {
+	/*.card {
+		width: 70%;
+		height: 70%;
+	}
+*/
+}
+
+.main {
+	margin-top: 10rem;
+}
+

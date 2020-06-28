@@ -1,0 +1,44 @@
+#welcomeImg {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+#researchTitle {
+	margin-bottom: 1rem;
+}
+#loginBtn {
+	background-color: #438196;
+	border-color: #58AAC5;
+	border-width: 0.15rem;
+}
+
+#loginContainer {
+	text-align: center;
+	height: 250px;
+}
+
+#logoutBtn {
+	background-color: #D1563F;
+	border-color: #AD3620;
+	border-width: 0.15rem;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+}
+
+.badge-new {
+	background-color: #fed87d;
+	color: #ffffff;
+}
+
+.footer {
+	margin-top: 1rem;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	font-size: 12px;
+	text-align: center;
+	background-color: #f5f5f5;
+}

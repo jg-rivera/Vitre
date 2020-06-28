@@ -1,0 +1,61 @@
+		h2, h3 {
+			color: #808080;	
+		}
+		.card-header {
+			background-color: #428396;
+			border: 0;
+			border-bottom: 2px solid #F1C765;
+		}
+		.card-header .btn {
+			font-size: 18px;
+			color: #F1C765;
+			text-decoration: none;
+		}
+		.container {
+			margin-top: 5em;
+			background-color: rgba(255, 255, 255, 0.8);
+		}
+
+		.list-group {
+			list-style: decimal inside;
+		}
+		.list-group-item {
+			display: list-item;
+		}
+		
+		#headerIcon {
+			color: #F1C765;
+			font-size: 1.1em;
+		}
+		
+		#takenIcon {
+			color: green;
+		}
+		
+	
+		.subject-header {
+			text-align: center; 
+			flex-direction: column;
+			display: flex; 
+			align-items:center; 
+			justify-content: center;
+		}
+		
+		.subject-img {
+			margin-bottom: 1em;
+			width: 100px; 
+			height: 100px;
+		}
+		
+		#score {
+			line-height: 5px;
+			text-align: center;
+		}
+		
+		.no-act {
+			text-align: center; 
+			flex-direction: column;
+			display: flex; 
+			align-items:center; 
+			justify-content: center;
+		}

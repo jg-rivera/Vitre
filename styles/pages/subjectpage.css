@@ -1,0 +1,81 @@
+	
+		#subjectCard {
+			border-radius: 15px 15px 15px 15px;
+			border-color: #17566B;
+			border-width: 3px;
+			margin-bottom: 3em;
+		}
+		
+		#subjectCardHeader {
+			border-radius: 5px 5px 0px 0px;
+			border-bottom: 4px solid #428095;
+			background-color: #17566B;
+			color: #FFFFFF;
+		}
+		
+		.card .component {
+			border: 0;
+		}
+		.card .component .card-header {
+			background-color: #17566B;
+			border-radius: 5px 5px 5px 5px;
+			border-bottom: 3px solid #428095;
+		}
+		
+		.card .component .card-header .btn {
+			font-size: 18px;
+			color: #F1C765;
+			text-decoration: none;
+			border: 0;
+		}
+		
+		.container {
+			margin-top: 5em;
+			background-color: rgba(255, 255, 255, 0.8);
+		}
+
+		.list-group {
+			list-style: decimal inside;
+			
+		}
+		.list-group-item {
+			display: list-item;
+			
+		}
+		
+		#headerIcon {
+			color: #F1C765;
+			font-size: 1.1em;
+		}
+		
+		#takenIcon {
+			color: green;
+		}
+		
+	
+		.subject-header {
+			text-align: center; 
+			flex-direction: column;
+			display: flex; 
+			align-items:center; 
+			justify-content: center;
+		}
+		
+		.subject-img {
+			margin-bottom: 1em;
+			width: 100px; 
+			height: 100px;
+		}
+		
+		#score {
+			line-height: 5px;
+			text-align: center;
+		}
+		
+		.no-act {
+			text-align: center; 
+			flex-direction: column;
+			display: flex; 
+			align-items:center; 
+			justify-content: center;
+		}
