@@ -79,7 +79,7 @@ task pushDropbox(dependsOn: 'jfxJar') {
     	workingDir "${buildDir}/jfx/app"
 		commandLine 'curl', '-X', 'POST', 'https://content.dropboxapi.com/2/files/upload', 
 		    '-H',
-		    '\"Authorization: Bearer h07IP72qFWAAAAAAAAAAFSxR4DrPW8QEKz3kI51TckfeP75hNczczVu6Ra4LsXT2\"',
+		    '\"Authorization: Bearer <REDACTED>\"',
 		   	'-H',
 		   	"\"Dropbox-API-Arg: {\\\"path\\\":\\\"/packages/${outName}\\\",\\\"mode\\\":\\\"overwrite\\\", \\\"autorename\\\": false}\"",
 		   	'-H',
