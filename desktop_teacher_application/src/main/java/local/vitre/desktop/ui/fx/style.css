@@ -1,0 +1,94 @@
+
+.titled-pane {
+	-fx-text-fill: white;
+}
+
+
+.titled-pane > .title {
+  -fx-background-color: 
+  	linear-gradient(to bottom, rgba(76.0,144.0,162.0,1.0) 0.0%,rgba(76.0,144.0,162.0,1.0) 100.0%);
+  -fx-background-radius: 0.0;
+  -fx-border-color: #D3D3D3;
+}
+
+.success {
+    -fx-background-color: #00FF0055;
+}
+
+.list-view .list-cell:selected {
+	-fx-background-color: #D3D3D3;
+}
+
+.progress-bar > .bar {
+    -fx-background-insets: 1.0 1.0 2.0 1.0;
+    -fx-padding: 0.2em;
+}
+
+/******************************************************************************
+ * 
+ * Notification bar styling
+ * 
+ *****************************************************************************/
+ 
+.notification-bar>.pane {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #A9A9A9;
+    -fx-padding: 5 5 5 5;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-background-insets: 0, 1, 2;
+}
+
+.notification-bar>.pane .title {
+    -fx-font-size: 1.333em; /*16px;*/
+    -fx-text-fill: #000;
+    -fx-font-weight: bold;
+}
+
+.notification-bar>.pane .label {
+    -fx-font-size: 1em; /*12px;*/
+    -fx-text-fill: #000;
+    -fx-alignment: top-left;
+}
+
+/******************************************************************************
+ * 
+ * Close button
+ * 
+ *****************************************************************************/
+
+.notification-bar>.pane .close-button {
+    -fx-background-color: #000000;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-padding: 0 0 0 0;
+    -fx-alignment: center;
+}
+
+.notification-bar > .pane .close-button:hover {
+     -fx-background-color: linear-gradient(#a3a3a3, #8b8b8b 34%, #777777 36%, #777777 63%, #8b8b8b 65%, #adadad);
+}
+
+.notification-bar>.pane .close-button:pressed {
+     -fx-background-color: linear-gradient(#a3a3a3, #8b8b8b 34%, #777777 36%, #777777 63%, #8b8b8b 65%, #adadad);
+
+}
+
+.notification-bar>.pane .close-button>.graphic {
+     -fx-background-color: #fff;
+     -fx-scale-shape: false;
+     -fx-padding: 4.5 4.5 4.5 4.5; /* Graphic is 9x9 px */
+}
+
+.notification-bar>.pane .close-button:hover>.graphic {
+     -fx-background-color: #fff;
+}
+
+.notification-bar>.pane .close-button:pressed>.graphic {
+     -fx-background-color: #fff;
+}
+
+.notification-bar>.pane .close-button>.graphic {
+     -fx-shape:
+    "M395.992,296.758l1.794-1.794l7.292,7.292l-1.795,1.794 L395.992,296.758z M403.256,294.992l1.794,1.794l-7.292,7.292l-1.794-1.795 L403.256,294.992z";
+}

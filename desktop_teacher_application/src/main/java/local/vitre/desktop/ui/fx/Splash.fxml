@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="477.0" prefWidth="520.0" style="-fx-background-color: #f7f8f9;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="local.vitre.desktop.ui.fx.SplashController">
+   <children>
+      <Label fx:id="workText" alignment="CENTER" layoutX="125.0" layoutY="354.0" prefHeight="17.0" prefWidth="301.0" text="Loading..." textAlignment="CENTER" textFill="GREY" />
+      <Label fx:id="versionLbl" layoutX="162.0" layoutY="283.0" text="Version -" textFill="GREY">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="buildLbl" layoutX="335.0" layoutY="283.0" text="Build -" textFill="GREY">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="-1.0" layoutY="401.0" prefHeight="80.0" prefWidth="525.0" style="-fx-background-color: #438196;">
+         <children>
+            <Label fx:id="version11" layoutX="14.0" layoutY="24.0" text="Jose Gabrielle Rivera" textFill="#f0c776" />
+            <Label fx:id="version111" layoutX="14.0" layoutY="44.0" text="Daveren John Cordero" textFill="#f0c776" />
+            <Label fx:id="version1111" layoutX="150.0" layoutY="25.0" text="Sherwin Ansay" textFill="#f0c776" />
+            <Label fx:id="version11111" layoutX="149.0" layoutY="43.0" text="Dave Emmanuel Nuada" textFill="#f0c776" />
+         </children>
+      </AnchorPane>
+      <Line endX="420.0" layoutX="98.0" layoutY="399.0" startX="-100.0" stroke="#f0c766" strokeWidth="5.0" />
+      <ProgressBar fx:id="progressBar" layoutX="192.0" layoutY="344.0" prefHeight="0.0" prefWidth="164.0" progress="0.0" stylesheets="@bar.css" />
+      <ImageView cache="true" fitHeight="85.0" fitWidth="49.0" layoutX="458.0" layoutY="412.0" preserveRatio="true">
+         <image>
+            <Image url="@vitreslimlogo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="234.0" fitWidth="359.0" layoutX="87.0" layoutY="40.0">
+         <image>
+            <Image url="@mascot.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

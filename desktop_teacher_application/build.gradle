@@ -1,0 +1,125 @@
+import groovyx.net.http.*
+import groovy.json.JsonSlurper
+
+buildscript {
+    dependencies {
+        classpath group: 'de.dynamicfiles.projects.gradle.plugins', name: 'javafx-gradle-plugin', version: '8.8.2'
+       	classpath 'org.codehaus.groovy.modules.http-builder:http-builder:0.5.2'
+    }
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}
+
+apply plugin: 'java-library'
+
+// UPDATER FIELDS
+def VERSION = '1.1.4';
+def BUILD_NUMBER = 18;
+
+repositories {
+    jcenter()
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.apache.commons:commons-lang3:3.7'
+    compile 'commons-io:commons-io:2.4'
+    compile 'org.apache.httpcomponents:httpcore:4.3.3'
+    compile 'org.apache.httpcomponents:httpclient:4.3.3'
+    compile 'org.apache.httpcomponents:httpmime:4.3.3'
+	compile 'org.apache.poi:poi:3.9'
+	compile 'org.apache.poi:poi-ooxml:3.17'
+	compile 'com.googlecode.json-simple:json-simple:1.1.1'
+	compile 'org.controlsfx:controlsfx:8.40.14'
+    compile 'com.flipkart.zjsonpatch:zjsonpatch:0.4.4'
+    compile 'com.auth0:java-jwt:3.4.0'
+    compile 'org.hashids:hashids:1.0.3'
+    compile 'de.jensd:fontawesomefx-commons:8.15'
+    compile 'de.jensd:fontawesomefx-materialdesignfont:1.7.22-4'
+    compile 'com.dropbox.core:dropbox-core-sdk:3.0.9'
+}
+
+processResources {
+  from ('src/main/java') {
+    include '**/*.fxml'
+    include '**/*.css'
+    include '**/*.png'
+  }
+}
+
+sourceSets {
+        main.java.srcDirs = ['src/main/java']
+        main.resources.srcDirs = ['src/resources/java']
+}
+
+
+task pushDropbox(dependsOn: 'jfxJar') {
+	def inName = 'project-jfx.jar'
+    def outName = "dta-${VERSION}.jar"
+    def inMf = 'update.mf'
+    println "-- PUSH DROPBOX --";
+    println "Version: ${VERSION}, Build: ${BUILD_NUMBER}"
+    
+    def artifact = project.file("build/jfx/app/${inName}")
+    
+    println "Creating update manifest...";
+    def manifest = project.file("build/jfx/app/${inMf}").text = "{\"build_number\": ${BUILD_NUMBER},\"build_version\": \"${VERSION}\",\"build_package\": \"${outName}\"}"
+     
+    print 'Jar file size (in Kilobytes): '
+    println artifact.bytes.length / 1000
+    
+    print 'Manifest file size (in Kilobytes): '
+    println manifest.bytes.length / 1000
+    
+    println "Pushing ${outName} into Dropbox...";
+	exec {    
+    	workingDir "${buildDir}/jfx/app"
+		commandLine 'curl', '-X', 'POST', 'https://content.dropboxapi.com/2/files/upload', 
+		    '-H',
+		    '\"Authorization: Bearer h07IP72qFWAAAAAAAAAAFSxR4DrPW8QEKz3kI51TckfeP75hNczczVu6Ra4LsXT2\"',
+		   	'-H',
+		   	"\"Dropbox-API-Arg: {\\\"path\\\":\\\"/packages/${outName}\\\",\\\"mode\\\":\\\"overwrite\\\", \\\"autorename\\\": false}\"",
+		   	'-H',
+		   	'\"Content-Type: application/octet-stream\"',
+	    	'--data-binary',
+	    	"\"@${inName}\""
+	}
+	
+    println "Pushing ${inMf} into Dropbox...";
+	exec {
+		workingDir "${buildDir}/jfx/app"
+		commandLine 'curl', '-X', 'POST', 'https://content.dropboxapi.com/2/files/upload', 
+	    	'-H',
+		    '\"Authorization: Bearer <REDACTED>\"',
+		    '-H',
+		   	"\"Dropbox-API-Arg: {\\\"path\\\":\\\"/${inMf}\\\",\\\"mode\\\":\\\"overwrite\\\", \\\"autorename\\\": false}\"",
+		   	'-H',
+		   	'\"Content-Type: application/octet-stream\"',
+		   	'--data-binary',
+		   	"\"@${inMf}\""
+	}
+	
+    println "Push success!";
+    
+}
+
+apply plugin: 'javafx-gradle-plugin'
+
+jfx {
+    // minimal requirement for jfxJar-task
+    mainClass = 'local.vitre.desktop.Vitre'
+    
+    // minimal requirement for jfxNative-task
+    vendor = 'Vitre'
+}
+
+
+jar {
+	manifest { 
+    	attributes "Main-Class": "local.vitre.desktop.Vitre"
+ 	}
+    //from { configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) } }
+}

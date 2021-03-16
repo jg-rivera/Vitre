@@ -1,0 +1,39 @@
+apply plugin: 'java'
+
+buildscript {
+    dependencies {
+        classpath group: 'de.dynamicfiles.projects.gradle.plugins', name: 'javafx-gradle-plugin', version: '8.8.2'
+    }
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}
+
+repositories {
+	    jcenter()
+	    mavenLocal()
+	    mavenCentral()
+}
+	
+dependencies {
+	compile 'com.googlecode.json-simple:json-simple:1.1.1'
+	compile 'com.dropbox.core:dropbox-core-sdk:3.0.9'
+}
+
+processResources {
+  from ('src/main/java') {
+    include '**/*.gif'
+    include '**/*.png'
+  }
+}
+
+apply plugin: 'javafx-gradle-plugin'
+
+jfx {
+    // minimal requirement for jfxJar-task
+    mainClass = 'local.vitre.desktop.updater.Main'
+    
+    // minimal requirement for jfxNative-task
+    vendor = 'VitreUpdater'
+}

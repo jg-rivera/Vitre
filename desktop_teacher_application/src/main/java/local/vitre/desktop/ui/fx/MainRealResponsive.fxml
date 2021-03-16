@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.embed.swing.SwingNode?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="local.vitre.desktop.ui.fx.MainController">
+   <children>
+      <BorderPane prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="505.0" prefWidth="291.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TitledPane animated="false" collapsible="false" layoutX="-1.0" prefHeight="375.0" prefWidth="293.0" text="Class Record Input Data" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="291.0">
+                           <children>
+                              <TabPane fx:id="inputDataTabPane" prefHeight="346.0" prefWidth="291.0" tabClosingPolicy="UNAVAILABLE">
+                                 <tabs>
+                                    <Tab text="Overview">
+                                       <content>
+                                          <AnchorPane fx:id="inputtedDataAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="94.0" prefWidth="291.0">
+                                             <children>
+                                                <Label layoutX="47.0" layoutY="25.0" text="Subject:" />
+                                                <Label layoutX="14.0" layoutY="98.0" text="Grade &amp; Section:" />
+                                                <Label layoutX="45.0" layoutY="73.0" text="Teacher:" />
+                                                <Label fx:id="dataSubjectValue" layoutX="113.0" layoutY="25.0" maxWidth="165.0" prefHeight="17.0" prefWidth="165.0" text="-" />
+                                                <Label fx:id="dataTeacherValue" layoutX="113.0" layoutY="73.0" prefHeight="17.0" prefWidth="165.0" text="-" />
+                                                <Label fx:id="dataSectionValue" layoutX="113.0" layoutY="98.0" prefHeight="17.0" prefWidth="165.0" text="-" />
+                                                <Label layoutX="52.0" layoutY="47.0" text="Track:" />
+                                                <Label fx:id="dataTrackValue" layoutX="113.0" layoutY="47.0" prefHeight="17.0" prefWidth="165.0" text="-" wrapText="true">
+                                                   <font>
+                                                      <Font name="System Italic" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="42.0" layoutY="123.0" text="Semester:" />
+                                                <Label fx:id="dataSemesterValue" layoutX="113.0" layoutY="123.0" prefHeight="17.0" prefWidth="165.0" text="-" />
+                                                <MenuButton fx:id="menuBtnQuarter" layoutX="110.0" layoutY="145.0" mnemonicParsing="false" text="1st">
+                                                  <items>
+                                                    <MenuItem mnemonicParsing="false" onAction="#onQuarterSelect" text="1st" />
+                                                    <MenuItem mnemonicParsing="false" onAction="#onQuarterSelect" text="2nd" />
+                                                  </items>
+                                                </MenuButton>
+                                                <Label layoutX="46.0" layoutY="149.0" text="Quarter:" />
+                                                <Button fx:id="patchBtn" defaultButton="true" layoutX="146.0" layoutY="207.0" mnemonicParsing="false" onAction="#onApplyPatch" prefHeight="40.0" prefWidth="89.0" text="Patch">
+                                                   <graphic>
+                                                      <MaterialDesignIconView glyphName="GRADIENT" size="22.0" />
+                                                   </graphic>
+                                                   <font>
+                                                      <Font name="System Italic" size="14.0" />
+                                                   </font>
+                                                </Button>
+                                                <Line endX="140.0" layoutX="120.0" layoutY="189.0" startX="-100.0" stroke="#8a8a8a" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="0.5" />
+                                                <Label fx:id="checkLabelParsed" layoutX="33.0" layoutY="198.0" text="Parsed">
+                                                   <graphic>
+                                                      <MaterialDesignIconView fill="GREY" glyphName="CHECKBOX_BLANK_CIRCLE_OUTLINE" />
+                                                   </graphic>
+                                                   <tooltip>
+                                                      <Tooltip text="This record is read and parsed successfully." />
+                                                   </tooltip>
+                                                </Label>
+                                                <Label fx:id="checkLabelSync" layoutX="33.0" layoutY="234.0" text="Synchronized">
+                                                   <graphic>
+                                                      <MaterialDesignIconView fill="GREY" glyphName="CHECKBOX_BLANK_CIRCLE_OUTLINE" />
+                                                   </graphic>
+                                                   <tooltip>
+                                                      <Tooltip text="This record is up-to-date and ready for patching." />
+                                                   </tooltip>
+                                                </Label>
+                                                <Label fx:id="checkLabelVerified" layoutX="33.0" layoutY="216.0" text="Verified">
+                                                   <graphic>
+                                                      <MaterialDesignIconView fill="GREY" glyphName="CHECKBOX_BLANK_CIRCLE_OUTLINE" />
+                                                   </graphic>
+                                                   <tooltip>
+                                                      <Tooltip text="This record is recognized and known by the server." />
+                                                   </tooltip>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                    <Tab text="Students">
+                                       <content>
+                                          <AnchorPane prefHeight="296.0" prefWidth="291.0">
+                                             <children>
+                                                <AnchorPane layoutX="40.0" layoutY="6.0" prefHeight="171.0" prefWidth="209.0">
+                                                   <children>
+                                                      <SwingNode fx:id="studentsListNode" />
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="3.0" layoutY="208.0" prefHeight="95.0" prefWidth="282.0">
+                                                   <children>
+                                                      <Line endX="140.0" layoutX="121.0" layoutY="22.0" startX="-100.0" stroke="#8a8a8a" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="0.5" />
+                                                      <Label layoutX="79.0" layoutY="30.0" text="Total students:" />
+                                                      <Label fx:id="dataStudentsTotalValue" layoutX="205.0" layoutY="30.0" text="-" />
+                                                      <Label layoutX="79.0" layoutY="47.0" text="Male students:" />
+                                                      <Label fx:id="dataStudentsMaleValue" layoutX="205.0" layoutY="47.0" text="-" />
+                                                      <Label layoutX="73.0" layoutY="64.0" text="Female students:" />
+                                                      <Label fx:id="dataStudentsFemaleValue" layoutX="205.0" layoutY="64.0" text="-" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                 </tabs>
+                              </TabPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" collapsible="false" layoutX="-1.0" layoutY="374.0" prefHeight="131.0" prefWidth="293.0" text="Server Information" AnchorPane.bottomAnchor="0.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="289.0">
+                           <children>
+                              <Label layoutX="13.0" layoutY="25.0" text="IP Address">
+                                 <graphic>
+                                    <MaterialDesignIconView glyphName="CHIP" size="15.0" />
+                                 </graphic>
+                              </Label>
+                              <Label layoutX="13.0" layoutY="6.0" text="Online">
+                                 <graphic>
+                                    <MaterialDesignIconView glyphName="LAN_CONNECT" size="16.0" />
+                                 </graphic>
+                              </Label>
+                              <Label fx:id="ipValue" layoutX="97.0" layoutY="25.0" text="-" />
+                              <Label fx:id="onlineValue" layoutX="97.0" layoutY="6.0" prefHeight="17.0" prefWidth="133.0" text="-" />
+                              <Label layoutX="11.0" layoutY="61.0" text="Flags">
+                                 <graphic>
+                                    <MaterialDesignIconView fx:id="flagViewButton" glyphName="FLAG" size="16.0" />
+                                 </graphic>
+                              </Label>
+                              <Label fx:id="flagCount" layoutX="97.0" layoutY="61.0" prefHeight="17.0" prefWidth="42.0" text="-" />
+                              <Button layoutX="193.0" layoutY="56.0" mnemonicParsing="false" onAction="#onViewFlagList" prefHeight="27.0" prefWidth="82.0" text="View Flags..." />
+                              <Label layoutX="13.0" layoutY="43.0" text="Latency">
+                                 <graphic>
+                                    <MaterialDesignIconView glyphName="AV_TIMER" size="15.0" />
+                                 </graphic>
+                              </Label>
+                              <Label fx:id="latencyValue" layoutX="97.0" layoutY="43.0" prefHeight="17.0" prefWidth="51.0" text="-" />
+                              <Hyperlink layoutX="262.0" layoutY="1.0">
+                                 <graphic>
+                                    <MaterialDesignIconView fill="#868686" glyphName="REFRESH" onMouseClicked="#onNetRefresh" size="18.0" text="" />
+                                 </graphic>
+                              </Hyperlink>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </TitledPane>
+               </children>
+            </AnchorPane>
+         </left>
+         <top>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="215.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TitledPane animated="false" collapsible="false" layoutY="25.0" prefHeight="190.0" prefWidth="292.0" text="Current Class Record">
+                     <content>
+                        <AnchorPane fx:id="currentRecordPane" minHeight="0.0" minWidth="0.0" prefHeight="119.0" prefWidth="315.0">
+                           <children>
+                              <Label fx:id="currentTeacher" alignment="CENTER" layoutX="-2.0" layoutY="75.0" prefHeight="32.0" prefWidth="292.0" text="-" />
+                              <Label fx:id="currentSection" alignment="CENTER" layoutX="-2.0" layoutY="8.0" prefHeight="34.0" prefWidth="290.0" text="-" textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="140.0" layoutX="120.0" layoutY="74.0" startX="-100.0" stroke="#8a8a8a" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="0.5" />
+                              <Label fx:id="currentSubject" alignment="CENTER" layoutX="-2.0" layoutY="36.0" prefHeight="34.0" prefWidth="291.0" text="-" textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <MaterialDesignIconView fx:id="registeredIcon" accessibleRole="BUTTON" glyphName="ARCHIVE" layoutX="261.0" layoutY="24.0" size="24" stroke="WHITE" strokeWidth="0.0">
+                                 <fill>
+                                    <LinearGradient endX="1.0" endY="1.0" startX="0.7952380952380953">
+                                       <stops>
+                                          <Stop color="#2f2f2f" />
+                                          <Stop color="#218491" offset="0.9444641940198285" />
+                                          <Stop color="#48cf36" offset="0.9965635738831614" />
+                                          <Stop color="#218694" offset="1.0" />
+                                       </stops>
+                                    </LinearGradient>
+                                 </fill>
+                              </MaterialDesignIconView>
+                              <Label fx:id="hashRecord" alignment="CENTER" layoutX="-3.0" layoutY="103.0" prefHeight="17.0" prefWidth="293.0" textAlignment="CENTER" textFill="#23800e" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                    <menus>
+                      <Menu mnemonicParsing="false" text="File">
+                        <items>
+                          <MenuItem mnemonicParsing="false" onAction="#menuImportAction" text="Import class record..." />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem fx:id="importAction3" disable="true" mnemonicParsing="false" text="Preferences..." />
+                              <MenuItem mnemonicParsing="false" onAction="#onViewRefresh" text="Refresh" />
+                              <MenuItem mnemonicParsing="false" onAction="#onSaveExit" text="Save &amp; Exit" />
+                        </items>
+                      </Menu>
+                      <Menu disable="true" mnemonicParsing="false" text="Database">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="View registered" />
+                           </items>
+                      </Menu>
+                        <Menu disable="true" mnemonicParsing="false" text="Help">
+                           <items>
+                          <MenuItem mnemonicParsing="false" text="About" />
+                           </items>
+                        </Menu>
+                    </menus>
+                  </MenuBar>
+                  <TitledPane fx:id="recordsTitlePane" animated="false" collapsible="false" layoutX="292.0" layoutY="25.0" prefHeight="190.0" prefWidth="987.0" text="Imported records" AnchorPane.leftAnchor="292.0" AnchorPane.rightAnchor="1.0">
+                     <content>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="132.0" prefWidth="954.0" vbarPolicy="NEVER">
+                           <content>
+                              <HBox fx:id="fileChooserPane" alignment="CENTER_LEFT" fillHeight="false" prefHeight="165.0" style="-fx-background-color: #D3D3D3;" />
+                           </content>
+                        </ScrollPane>
+                     </content>
+                  </TitledPane>
+               </children>
+            </AnchorPane>
+         </top>
+         <center>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="1006.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TitledPane fx:id="recordViewTitlePane" accessibleRole="PARENT" animated="false" collapsible="false" prefHeight="375.0" prefWidth="989.0" text="Class Record Grade Data" AnchorPane.bottomAnchor="130.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="302.0" prefWidth="491.0">
+                           <children>
+                              <TabPane fx:id="componentTabPane" layoutX="9.6" layoutY="39.0" prefHeight="312.0" prefWidth="997.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="-12.0" AnchorPane.leftAnchor="-10.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="30.0">
+                                 <tabs>
+                                    <Tab text="Written Work">
+                                       <content>
+                                          <SwingNode fx:id="writtenWorkNode" />
+                                       </content>
+                                    </Tab>
+                                    <Tab text="Performance Tasks">
+                                       <content>
+                                          <SwingNode fx:id="performanceTasksNode" />
+                                       </content>
+                                    </Tab>
+                                    <Tab text="Quarterly Assessment">
+                                       <content>
+                                          <SwingNode fx:id="quarterlyAssessmentNode" />
+                                       </content>
+                                    </Tab>
+                                 </tabs>
+                              </TabPane>
+                              <ToolBar fx:id="toolbar" prefHeight="40.0" prefWidth="990.0" AnchorPane.leftAnchor="-10.0" AnchorPane.rightAnchor="-10.0">
+                                <items>
+                                    <Label text="Tools" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="System Italic" size="12.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets right="15.0" />
+                                       </padding>
+                                    </Label>
+                                    <Button mnemonicParsing="false" onAction="#onSync" text="Synchronize">
+                                       <graphic>
+                                          <MaterialDesignIconView glyphName="CLOUD_SYNC" size="20.0" />
+                                       </graphic>
+                                    </Button>
+                                    <Separator orientation="VERTICAL" prefHeight="30.0" prefWidth="15.0" />
+                                    <Button fx:id="registerBtn" mnemonicParsing="false" onAction="#onRegisterStudents" text="Register Students">
+                                       <graphic>
+                                          <MaterialDesignIconView glyphName="HUMAN_GREETING" size="20.0" />
+                                       </graphic>
+                                    </Button>
+                                    <Separator orientation="VERTICAL" prefHeight="30.0" prefWidth="15.0" />
+                                    <ToggleButton mnemonicParsing="false" onAction="#onHideView" prefHeight="28.0" prefWidth="98.0" text="Hide View">
+                                       <graphic>
+                                          <MaterialDesignIconView glyphName="EYE_OFF" size="20.0" />
+                                       </graphic>
+                                    </ToggleButton>
+                                    <Button fx:id="onViewContextList" mnemonicParsing="false" onAction="#onViewContextList" text="View Contexts">
+                                       <graphic>
+                                          <MaterialDesignIconView glyphName="NOTE_MULTIPLE" size="19.0" />
+                                       </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onViewHistory" text="View Patch History">
+                                       <graphic>
+                                          <MaterialDesignIconView glyphName="HISTORY" size="20.0" />
+                                       </graphic>
+                                    </Button>
+                                </items>
+                              </ToolBar>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <AnchorPane layoutX="14.0" layoutY="383.0" prefHeight="106.0" prefWidth="968.0" AnchorPane.bottomAnchor="16.0">
+                     <children>
+                        <AnchorPane fx:id="helpPane" layoutX="425.0" layoutY="20.0" prefHeight="66.0" prefWidth="375.0" AnchorPane.leftAnchor="425.0" AnchorPane.rightAnchor="122.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="25.0" text="Data is patched">
+                                 <graphic>
+                                    <MaterialDesignIconView fill="#5bff79" glyphName="SOLID" size="11.0" stroke="BLACK" />
+                                 </graphic>
+                                 <tooltip>
+                                    <Tooltip text="This data is synchronized and stored on the Vitre. The owner of this data would be able to see it." />
+                                 </tooltip>
+                              </Label>
+                              <Label layoutX="232.0" layoutY="4.0" text="Data is new and ready to be sent">
+                                 <graphic>
+                                    <MaterialDesignIconView fill="#e9acff" glyphName="SOLID" size="11.0" stroke="BLACK" />
+                                 </graphic>
+                                 <tooltip>
+                                    <Tooltip text="This data is ready to be sent to the Vitre. It has context and documentation." />
+                                 </tooltip>
+                              </Label>
+                              <Label layoutX="232.0" layoutY="44.0" text="Data is missing">
+                                 <graphic>
+                                    <MaterialDesignIconView fill="#ff5353" glyphName="SOLID" size="11.0" stroke="BLACK" />
+                                 </graphic>
+                              </Label>
+                              <Label layoutX="14.0" layoutY="45.0" text="Data has context">
+                                 <graphic>
+                                    <MaterialDesignIconView fill="#4ca3f5" glyphName="SOLID" size="11.0" stroke="BLACK" />
+                                 </graphic>
+                              </Label>
+                              <Label layoutX="14.0" layoutY="5.0" text="Data is undocumented">
+                                 <graphic>
+                                    <MaterialDesignIconView fill="#c9c9c9" glyphName="SOLID" size="11.0" stroke="BLACK" text="" />
+                                 </graphic>
+                              </Label>
+                              <Label layoutX="232.0" layoutY="24.0" text="Data needs to be updated">
+                                 <graphic>
+                                    <MaterialDesignIconView fill="#fce263" glyphName="SOLID" size="11.0" stroke="BLACK" text="" />
+                                 </graphic>
+                                 <tooltip>
+                                    <Tooltip text="This data is ready to be sent to the Vitre. It has context and documentation." />
+                                 </tooltip>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                    <AnchorPane fx:id="columnInfoPane" layoutY="5.0" minHeight="0.0" minWidth="0.0" prefHeight="84.0" prefWidth="464.0">
+                           <children>
+                              <Label fx:id="selectedRowColValue" alignment="CENTER" disable="true" layoutX="141.0" layoutY="2.0" prefHeight="17.0" prefWidth="51.0" text="-" />
+                              <Label layoutX="14.0" layoutY="38.0" text="Student:" />
+                              <Label layoutX="14.0" layoutY="56.0" text="Item:" />
+                              <Label fx:id="selectedStudentValue" layoutX="70.0" layoutY="38.0" prefHeight="17.0" prefWidth="130.0" text="-" />
+                              <Label fx:id="selectedItemValue" layoutX="48.0" layoutY="56.0" prefHeight="17.0" prefWidth="147.0" text="-" />
+                              <Label layoutX="229.0" layoutY="37.0" text="Context:" />
+                              <Label layoutX="9.0" layoutY="2.0" text="Column Information">
+                                 <font>
+                                    <Font name="System Italic" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="300.0" layoutX="109.0" layoutY="25.0" startX="-100.0" stroke="#8a8a8a" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="0.5" />
+                              <Label layoutX="229.0" layoutY="56.0" text="State:" />
+                              <Label fx:id="selectedContextValue" layoutX="284.0" layoutY="37.0" prefHeight="17.0" prefWidth="95.0" text="-" />
+                              <Label fx:id="selectedStateValue" layoutX="269.0" layoutY="56.0" prefHeight="17.0" prefWidth="95.0" text="-" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

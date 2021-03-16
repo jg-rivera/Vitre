@@ -1,0 +1,16 @@
+PATH > PATCH_STORE_DIR = \bin\patches
+PATH > ACCOUNTS_STORE_DIR = \bin\accounts
+PATH > CONTEXT_STORE_DIR = \bin\contexts
+PATH > RCFG_STORE_DIR = \bin\record\config
+
+FILE > IMPORT_RECORD_FILE = \bin\record\imported.json
+FILE > PATCH_TRACKER_FILE = \bin\patch\tracker.json
+FILE > RECORD_SCHEMA_FILE = \bin\record\classrecords.schema
+FILE > ACCOUNT_TEMPLATE_DOC = \bin\accounts\AccountTemplate.docx
+FILE > UPDATE_MANIFEST = \update.mf
+
+URL > HOST_URL = http://localhost
+URL > API_SYNC_URL = /api/sync.php
+URL > API_CACHE_RETRIEVE_URL = /api/retrieve_cache.php
+URL > API_ADDRESS_RETRIEVE_URL = /api/address.php
+URL > SCRIPT_PAYLOAD_URL = /scripts/applypatch.php
